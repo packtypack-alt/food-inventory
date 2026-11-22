@@ -8,3 +8,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Location(models.Model):
+    point_in = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.point_in
