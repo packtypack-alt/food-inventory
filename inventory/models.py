@@ -14,3 +14,12 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+
+class StockCount(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    location = models.ForeignKey(Location, on_delete=models.PROTECT)
+    quantity = models.DecimalField(max_digits=9, decimal_places=3)
+    counted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.product} — {self.location} ({self.quantity})"
